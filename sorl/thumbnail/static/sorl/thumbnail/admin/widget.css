@@ -5,3 +5,10 @@
 .sorl_thumbnail_wrap .clearable-file-input {
     white-space: nowrap;
 }
+
+.sorl_thumbnail_wrap a.thumbnail {
+    display:block;
+    float:left;
+    margin:0 0 10px;
+}
+

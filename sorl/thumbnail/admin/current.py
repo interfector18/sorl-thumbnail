@@ -45,7 +45,7 @@ class AdminImageWidget(forms.ClearableFileInput):
                 try:
                     output = (
                         '<div class="sorl_thumbnail_wrap">'
-                        '<a style="width:%spx;display:block;margin:0 0 10px;float:left" class="thumbnail" '
+                        '<a style="width:%spx;" class="thumbnail" '
                         'target="_blank" href="%s">'
                         '<img src="%s"></a>%s</div>'
                     ) % (mini.width, value.url, mini.url, output)
