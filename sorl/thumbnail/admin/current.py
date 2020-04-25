@@ -14,6 +14,7 @@ class AdminImageWidget(forms.ClearableFileInput):
     An ImageField Widget for django.contrib.admin that shows a thumbnailed
     image as well as a link to the current one if it hase one.
     """
+    template_name = 'admin/widgets/clearable_file_input.html'
 
     template_with_initial = (
         '%(clear_template)s <br>'
