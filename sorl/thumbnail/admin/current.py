@@ -22,6 +22,9 @@ class AdminImageWidget(forms.ClearableFileInput):
     )
     template_with_clear = '<label>%(clear_checkbox_label)s: %(clear)s</label>'
 
+    class Media:
+        css = {'all': ['sorl/thumbnail/admin/widget.css']}
+
     def render(self, name, value, attrs=None, **kwargs):
         output = super().render(name, value, attrs, **kwargs)
         if value and hasattr(value, 'url'):
@@ -35,14 +38,14 @@ class AdminImageWidget(forms.ClearableFileInput):
             except Exception:
                 pass
             try:
-                mini = get_thumbnail(value, 'x80', upscale=False, format=ext)
+                mini = get_thumbnail(value, '150x80', upscale=False, format=ext)
             except Exception as e:
                 logger.warning("Unable to get the thumbnail", exc_info=e)
             else:
                 try:
                     output = (
-                        '<div style="float:left">'
-                        '<a style="width:%spx;display:block;margin:0 0 10px" class="thumbnail" '
+                        '<div class="sorl_thumbnail_wrap">'
+                        '<a style="width:%spx;display:block;margin:0 0 10px;float:left" class="thumbnail" '
                         'target="_blank" href="%s">'
                         '<img src="%s"></a>%s</div>'
                     ) % (mini.width, value.url, mini.url, output)

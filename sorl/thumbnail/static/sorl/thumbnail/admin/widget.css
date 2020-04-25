@@ -1,0 +1,7 @@
+.sorl_thumbnail_wrap {
+    float: left;
+}
+
+.sorl_thumbnail_wrap .clearable-file-input {
+    white-space: nowrap;
+}
